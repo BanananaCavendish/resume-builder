@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Link Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Resume Link Studio</p>
+            <h1>简历编辑器</h1>
+          </div>
+          <button class="icon-button" id="printBtn" title="导出 PDF" aria-label="导出 PDF">⤓</button>
+        </div>
+
+        <div class="toolbar">
+          <button class="tool-button is-active" data-template="classic">经典</button>
+          <button class="tool-button" data-template="compact">紧凑</button>
+          <button class="tool-button" data-template="modern">现代</button>
+        </div>
+
+        <div class="action-row">
+          <button class="ghost-button" id="exportDataBtn">导出数据</button>
+          <button class="ghost-button" id="importDataBtn">导入数据</button>
+          <input id="importFileInput" class="visually-hidden" type="file" accept="application/json" />
+        </div>
+
+        <section class="editor-panel">
+          <div class="panel-title">
+            <h2>基础信息</h2>
+            <button class="ghost-button" id="sampleBtn">示例</button>
+          </div>
+          <label>
+            姓名
+            <input id="nameInput" type="text" />
+          </label>
+          <label>
+            目标职位
+            <input id="roleInput" type="text" />
+          </label>
+          <label>
+            联系方式
+            <input id="contactInput" type="text" />
+          </label>
+          <label>
+            个人简介
+            <textarea id="summaryInput" rows="4"></textarea>
+          </label>
+        </section>
+
+        <section class="editor-panel">
+          <div class="panel-title">
+            <h2>添加链接</h2>
+          </div>
+          <div id="linkList" class="stack-list"></div>
+          <button class="ghost-button panel-add-button" id="addLinkBtn">添加链接</button>
+        </section>
+
+        <section class="editor-panel">
+          <div class="panel-title">
+            <h2>简历模块</h2>
+          </div>
+          <div id="sectionList" class="stack-list"></div>
+          <button class="ghost-button panel-add-button" id="addSectionBtn">添加模块</button>
+        </section>
+      </aside>
+
+      <section class="preview-stage">
+        <div class="preview-toolbar">
+          <button class="status-pill" id="previewFocusBtn" type="button">实时预览</button>
+          <button class="primary-button" id="printBtnTop">导出 PDF</button>
+        </div>
+        <article class="resume-page template-classic" id="resumePreview" tabindex="-1"></article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
